@@ -11,17 +11,17 @@ This template provides the structure for creating new Lightning Challenges. Foll
     ```
 
 2. **Rename Files**
-    - `challenge-description.md` → `challenge-name.md`
+    - `challenge-description.md` → `CHALLENGE_NUMBER-challenge-name.md`
     - `ChallengeTemplate.cls` → `YourChallengeNameTemplate.cls`
     - `ChallengeSolution.cls` → `YourChallengeNameSolution.cls`
+    - `ChallengeTest.cls` → `YourChallengeNameTest.cls`
     - Update corresponding `.cls-meta.xml` files
 
 3. **Update the Challenge Description**
-   Edit `challenge-name.md` with:
+   Edit `CHALLENGE_NUMBER-challenge-name.md` with:
     - Challenge number and title
     - Problem description
     - Examples with input/output
-    - Requirements and constraints
     - Hints
     - Difficulty level
     - Your author information
@@ -30,33 +30,28 @@ This template provides the structure for creating new Lightning Challenges. Foll
    In `YourChallengeNameTemplate.cls`:
     - Replace `sampleMethod` with your actual method signature
     - Update JavaDoc comments
-    - Keep the method body minimal (return null/default values)
-    - Update all test methods to match your implementation
-    - Ensure tests fail when run against the template
+    - Keep the method body minimal with TODO comments
+    - Return null or default values
 
 5. **Implement the Solution**
    In `YourChallengeNameSolution.cls`:
     - Use the same method signature as the template
     - Implement the complete, working solution
-    - Ensure all tests pass when run against the solution
+    - Include proper error handling and edge cases
+
+6. **Update the Tests**
+   In `YourChallengeNameTest.cls`:
+    - Update test methods to match your implementation
+    - Test various scenarios including edge cases
+    - Ensure tests pass when run against the solution
 
 ## 🧪 Testing Your Challenge
 
-### Template Testing (Should Fail)
+Run tests using the Salesforce CLI or VS Code Test Runner:
 
 ```bash
-cat YourChallengeNameTemplate.cls | sfdx force:apex:execute
+sfdx force:apex:test:run -t YourChallengeNameTest
 ```
-
-Expected output: Tests should fail with detailed error messages showing expected vs actual values.
-
-### Solution Testing (Should Pass)
-
-```bash
-cat YourChallengeNameSolution.cls | sfdx force:apex:execute
-```
-
-Expected output: All tests should pass with `"pass":true` in the JSON result.
 
 ## 📝 Template Structure
 
@@ -67,6 +62,8 @@ challenge-template/
 ├── ChallengeTemplate.cls-meta.xml   # Metadata for template
 ├── ChallengeSolution.cls            # Complete solution
 ├── ChallengeSolution.cls-meta.xml   # Metadata for solution
+├── ChallengeTest.cls                # Test class
+├── ChallengeTest.cls-meta.xml       # Metadata for test class
 └── README.md                        # This file
 ```
 
@@ -76,11 +73,10 @@ Before submitting your challenge:
 
 - [ ] Challenge description is clear and comprehensive
 - [ ] Examples demonstrate the problem well
-- [ ] Template compiles but returns null/default values
+- [ ] Template compiles but has incomplete implementation
 - [ ] Solution implements complete, working logic
-- [ ] All tests are comprehensive and cover edge cases
-- [ ] Template tests fail appropriately
-- [ ] Solution tests pass completely
+- [ ] Test class covers multiple scenarios and edge cases
+- [ ] All tests pass when run against the solution
 - [ ] Code follows Apex best practices
 - [ ] JavaDoc comments are accurate and helpful
 - [ ] Method signatures match between template and solution
@@ -105,7 +101,7 @@ Before submitting your challenge:
 
 - **Comprehensive Coverage**: Test normal cases, edge cases, and error conditions
 - **Clear Messages**: Test failure messages should be descriptive
-- **Consistent Format**: Follow the established testing framework
+- **Separate Test Class**: Use @isTest annotation and Assert methods
 - **Minimum Tests**: Include at least 6 different test scenarios
 
 ## 🚀 Next Steps

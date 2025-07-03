@@ -1,46 +1,13 @@
 {
-	"githubUsername": "your-github-username",
 	"displayName": "Your Display Name",
+	"fullName": "Your Full Name",
 	"bio": "A brief description about yourself and your Salesforce experience. What drives your passion for Salesforce development? What do you hope to share with the community?",
-	"profileImage": "https://github.com/your-username.png",
 	"links": {
 		"github": "https://github.com/your-username",
 		"linkedin": "https://linkedin.com/in/your-profile",
-		"trailhead": "https://trailhead.salesforce.com/en/me/your-trailhead-id",
+		"trailhead": "https://www.salesforce.com/trailblazer/your-trailhead-id",
 		"website": "https://your-website.com",
 		"twitter": "https://twitter.com/your-handle",
 		"blog": "https://your-blog.com"
-	},
-	"expertise": [
-		"Apex",
-		"Lightning Web Components",
-		"Aura Components",
-		"Integration",
-		"Data Architecture",
-		"Security",
-		"Performance Optimization",
-		"Testing",
-		"CI/CD"
-	],
-	"certifications": [
-		"Platform Developer I",
-		"Platform Developer II",
-		"System Architect",
-		"Application Architect",
-		"Data Architect",
-		"Sharing and Visibility Architect",
-		"Integration Architect"
-	],
-	"contributions": {
-		"totalChallenges": 0,
-		"challengeIds": [],
-		"lastContribution": null
-	},
-	"joinDate": "2024-01-01",
-	"status": "active",
-	"preferences": {
-		"contactForCollaboration": true,
-		"showEmail": false,
-		"featuredChallenges": []
 	}
 }
