@@ -15,6 +15,7 @@ Lightning Challenges is a platform designed to help Salesforce developers practi
 - [Testing Your Challenges](#testing-your-challenges)
 - [Submission Guidelines](#submission-guidelines)
 - [Community Guidelines](#community-guidelines)
+- [GitHub Templates](#github-templates)
 
 ## 🎯 Getting Started
 
@@ -44,25 +45,36 @@ Before creating challenges, set up your contributor profile:
 
 1. Navigate to `contributors/` directory
 2. Create a folder with your GitHub username (e.g., `contributors/your-github-username/`)
-3. Create a `profile.json` file with your information (see template in `contributors/_template/`)
+3. Copy the profile template:
+    ```bash
+    cp contributors/_template/profile.json contributors/your-github-username/profile.json
+    ```
+4. Fill out your information (see [Contributor Profiles](#contributor-profiles))
 
 ### Step 2: Create a Challenge
 
-1. Navigate to `force-app/main/YOUR_GITHUB_USERNAME/`
-2. Create a new folder for your challenge: `CHALLENGE_NUMBER-challenge-name/`
-3. Use the challenge template from `templates/challenge-template/`
-4. Include all required files (see [Challenge Structure](#challenge-structure))
+1. Copy the challenge template:
+    ```bash
+    cp -r templates/challenge-template force-app/main/YOUR_USERNAME/CHALLENGE_NUMBER-challenge-name/
+    ```
+2. Rename and update files according to the [Challenge Structure](#challenge-structure)
+3. Follow the template README for detailed implementation steps
 
 ### Step 3: Test Your Challenge
 
-1. Test your template (should compile but fail tests)
-2. Test your solution (should pass all tests)
-3. Use the command: `cat your-file.apex | sfdx force:apex:execute`
+1. Test your template (should compile but fail tests):
+    ```bash
+    cat YourChallengeNameTemplate.cls | sfdx force:apex:execute
+    ```
+2. Test your solution (should pass all tests):
+    ```bash
+    cat YourChallengeNameSolution.cls | sfdx force:apex:execute
+    ```
 
 ### Step 4: Submit Your Contribution
 
-1. Create a pull request with your changes
-2. Include a description of your challenge
+1. Create a pull request using the provided template
+2. Fill out all required sections in the PR template
 3. Wait for review and feedback
 
 ## 📁 Challenge Structure
@@ -71,33 +83,18 @@ Each challenge must include the following files:
 
 ```
 force-app/main/YOUR_USERNAME/CHALLENGE_NUMBER-challenge-name/
-├── challenge-name.md              # Challenge description
-├── ChallengeNameTemplate.cls      # Template with TODO implementation
+├── CHALLENGE_NUMBER-challenge-name.md    # Challenge description
+├── ChallengeNameTemplate.cls             # Template with TODO implementation
 ├── ChallengeNameTemplate.cls-meta.xml
-├── ChallengeNameSolution.cls      # Complete solution
+├── ChallengeNameSolution.cls             # Complete solution
 ├── ChallengeNameSolution.cls-meta.xml
-├── ChallengeNameTest.cls          # Comprehensive test suite
+├── ChallengeNameTest.cls                 # Comprehensive test suite
 └── ChallengeNameTest.cls-meta.xml
 ```
 
-### Challenge Markdown Format
+### File Requirements
 
-Your `challenge-name.md` should include:
-
-- Challenge title and number
-- Problem description
-- Input/output examples
-- Hints (optional)
-- Difficulty level (Easy, Medium, Hard)
-- Author information
-- Tags/categories
-
-### Code Requirements
-
-- **Template**: Should compile but return `null` or placeholder values
-- **Solution**: Should implement the complete, working solution
-- **Tests**: Should use the standard testing framework with comprehensive test cases
-- **Documentation**: Include clear JavaDoc comments
+See the template README for detailed file structure, naming conventions, and implementation requirements.
 
 ## 👤 Contributor Profiles
 
@@ -105,93 +102,67 @@ Create your profile in `contributors/YOUR_GITHUB_USERNAME/profile.json`:
 
 ```json
 {
-	"githubUsername": "your-github-username",
-	"displayName": "Your Display Name",
-	"bio": "A brief description about yourself and your Salesforce experience",
-	"profileImage": "https://github.com/your-username.png",
+	"displayName": "Your Username",
+	"fullName": "Your Full Name",
+	"bio": "A brief description about yourself and your Salesforce experience. What drives your passion for Salesforce development? What do you hope to share with the community?",
 	"links": {
 		"github": "https://github.com/your-username",
 		"linkedin": "https://linkedin.com/in/your-profile",
-		"trailhead": "https://trailhead.salesforce.com/en/me/your-trailhead-id",
+		"trailhead": "https://www.salesforce.com/trailblazer/your-trailhead-id",
 		"website": "https://your-website.com",
-		"twitter": "https://twitter.com/your-handle"
-	},
-	"expertise": ["Apex", "Lightning Web Components", "Integration", "etc"],
-	"certifications": ["Platform Developer I", "Platform Developer II", "etc"],
-	"contributions": {
-		"totalChallenges": 0,
-		"challengeIds": []
-	},
-	"joinDate": "2024-01-01",
-	"status": "active"
+		"twitter": "https://twitter.com/your-handle",
+		"blog": "https://your-blog.com"
+	}
 }
 ```
+
+### Profile Setup Instructions
+
+1. **Create Your Profile Directory**
+
+    ```bash
+    mkdir contributors/your-github-username
+    ```
+
+2. **Copy and Fill Template**
+
+    ```bash
+    cp contributors/_template/profile.json contributors/your-github-username/profile.json
+    ```
+
+3. **Required Fields**
+    - `displayName`: Your GitHub username (required)
+    - `github`: Your GitHub profile URL (required)
+
+4. **Optional Fields**
+    - `fullName`: Your full name
+    - `bio`: Brief description of your Salesforce experience
+    - `linkedin`, `trailhead`, `website`, `twitter`, `blog`: Professional links
 
 ## 🧪 Testing Your Challenges
 
-### Testing Framework
-
-All challenges must use the standard testing framework. Example:
-
-```apex
-// Test execution framework
-public static Result result = new Result();
-public class ResultException extends Exception {}
-
-public class Result {
-    public Boolean pass = true;
-    public List<TestResult> testResults = new List<TestResult>();
-
-    public void addTestResult(TestResult testResult) {
-        this.testResults.add(testResult);
-        if (!testResult.pass) {
-            this.pass = false;
-        }
-    }
-}
-
-// ... rest of framework code
-```
-
-### Running Tests
-
-Test your template (should fail):
+Test your template (should fail) and solution (should pass):
 
 ```bash
-cat YourChallengeTemplate.cls | sfdx force:apex:execute
+cat YourChallengeNameTemplate.cls | sfdx force:apex:execute
+cat YourChallengeNameSolution.cls | sfdx force:apex:execute
 ```
 
-Test your solution (should pass):
-
-```bash
-cat YourChallengeSolution.cls | sfdx force:apex:execute
-```
+See the template README for detailed testing instructions and requirements.
 
 ## 📋 Submission Guidelines
 
 ### Before Submitting
 
-- [ ] Challenge follows the standard structure
-- [ ] Template compiles but fails tests appropriately
-- [ ] Solution passes all tests
-- [ ] Comprehensive test coverage (minimum 6 test cases)
-- [ ] Clear documentation and examples
-- [ ] Contributor profile is complete and accurate
-- [ ] Challenge number doesn't conflict with existing challenges
+Ensure your challenge meets all requirements outlined in the template README and PR template checklist.
 
-### Pull Request Requirements
+### Pull Request Process
 
-- **Title**: `Add Challenge #XXX: Challenge Name by @username`
-- **Description**: Brief description of the challenge and its learning objectives
-- **Labels**: Add appropriate difficulty and topic labels
-- **Testing**: Include test results showing template fails and solution passes
-
-### Review Process
-
-1. Automated checks for structure and formatting
-2. Code review by maintainers
-3. Testing verification
-4. Final approval and merge
+1. **Use the PR Template**: Fill out all sections of the provided pull request template
+2. **Include Test Results**: Paste results showing template fails and solution passes
+3. **Complete Quality Checklist**: Check all applicable items in the PR template
+4. **Add Labels**: The template will automatically add appropriate labels
+5. **Respond to Feedback**: Address any review comments promptly
 
 ## 🌟 Community Guidelines
 
@@ -205,24 +176,45 @@ cat YourChallengeSolution.cls | sfdx force:apex:execute
 ### Challenge Quality Standards
 
 - **Educational Value**: Challenges should teach important Apex concepts
-- **Difficulty Progression**: Clearly indicate difficulty level
+- **Difficulty Progression**: Clearly indicate difficulty level (Beginner/Intermediate/Advanced)
 - **Real-world Relevance**: Prefer challenges that reflect actual development scenarios
 - **Code Quality**: Follow Apex best practices and conventions
 
-### Contribution Recognition
+## 📝 GitHub Templates
 
-Contributors will be featured on the Lightning Challenges website with:
+This repository includes several GitHub templates to streamline the contribution process:
 
-- Profile page showcasing their challenges
-- Contributor statistics and achievements
-- Links to their professional profiles
-- Community recognition badges
+### Issue Templates
+
+Located in `.github/ISSUE_TEMPLATE/`:
+
+- **Challenge Submission** (`challenge-submission.md`): For proposing new challenges
+- **Bug Report** (`bug-report.md`): For reporting issues with existing challenges
+- **Feature Request** (`feature-request.md`): For suggesting repository improvements
+- **Question** (`question.md`): For asking questions about challenges or the repository
+
+### Pull Request Template
+
+Located in `.github/pull_request_template.md`:
+
+- Comprehensive checklist for challenge submissions
+- Sections for testing results and quality validation
+- Review guidelines for maintainers
+- Structured format for consistent submissions
+
+### Using the Templates
+
+1. **For Issues**: Select the appropriate template when creating a new issue
+2. **For Pull Requests**: The template will automatically populate when you create a PR
+3. **Fill Completely**: Complete all relevant sections for faster review
+4. **Follow Checklists**: Use the provided checklists to ensure quality
 
 ## 📞 Support
 
-- **Issues**: Report bugs or request features via GitHub Issues
+- **Issues**: Report bugs or request features via GitHub Issues using the appropriate template
 - **Discussions**: Join community discussions in GitHub Discussions
 - **Documentation**: Check the `docs/` folder for detailed guides
+- **Templates**: Use the provided templates in `templates/challenge-template/`
 
 ## 📄 License
 
@@ -230,4 +222,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Ready to contribute?** Start by creating your contributor profile and your first challenge! 🚀
+**Ready to contribute?** Start by creating your contributor profile and your first challenge using the provided templates! 🚀
