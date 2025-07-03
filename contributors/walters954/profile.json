@@ -1,0 +1,42 @@
+{
+	"githubUsername": "walters954",
+	"displayName": "Warren Walters",
+	"bio": "Passionate Salesforce developer with expertise in Apex development, Lightning components, and platform architecture. I enjoy creating educational content and helping developers grow their skills through practical coding challenges.",
+	"profileImage": "https://github.com/walters954.png",
+	"links": {
+		"github": "https://github.com/walters954",
+		"linkedin": "https://linkedin.com/in/warren-walters",
+		"trailhead": "https://trailhead.salesforce.com/en/me/walters954",
+		"website": "https://warren-walters.dev",
+		"twitter": "https://twitter.com/walters954"
+	},
+	"expertise": [
+		"Apex",
+		"Lightning Web Components",
+		"Platform Architecture",
+		"Data Architecture",
+		"Integration",
+		"Testing",
+		"Performance Optimization",
+		"CI/CD"
+	],
+	"certifications": [
+		"Platform Developer I",
+		"Platform Developer II",
+		"System Architect",
+		"Application Architect",
+		"Data Architect"
+	],
+	"contributions": {
+		"totalChallenges": 2,
+		"challengeIds": ["0", "72"],
+		"lastContribution": "2024-01-15"
+	},
+	"joinDate": "2024-01-01",
+	"status": "active",
+	"preferences": {
+		"contactForCollaboration": true,
+		"showEmail": false,
+		"featuredChallenges": ["72"]
+	}
+}
