@@ -1,4 +1,4 @@
-### Challenge #001: Find First Unique Character
+### Challenge #002: Find First Unique Character
 
 #### Problem Description
 
